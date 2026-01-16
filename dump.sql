@@ -67,7 +67,7 @@ CREATE TABLE `comments` (
   KEY `comments_child_id_foreign` (`child_id`),
   KEY `comments_commenter_id_index` (`commenter_id`),
   CONSTRAINT `comments_child_id_foreign` FOREIGN KEY (`child_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,1,'App\\Models\\Post',1,'First comment to first post.',NULL,0,'2026-01-15 00:16:51','2026-01-15 00:16:54',NULL),(2,2,'App\\Models\\Post',1,'Reply to first comment to first post. Reply to first comment to first post.Reply to first comment to first post.Reply to first comment to first post.Reply to first comment to first post.Reply to first comment to first post.',1,0,'2026-01-15 01:18:32','2026-01-15 01:18:35',NULL),(3,1,'App\\Models\\Post',1,'Reply to reply to first comment to first post.',2,0,'2026-01-15 04:56:20','2026-01-15 04:56:23',NULL),(4,2,'App\\Models\\Post',1,'Second comment to first post.',NULL,0,'2026-01-15 05:00:30','2026-01-15 05:00:32',NULL),(5,1,'App\\Models\\Post',1,'<p>Updated text on comment #5</p>',NULL,0,'2026-01-15 19:27:14','2026-01-15 21:01:26',NULL),(6,1,'App\\Models\\Post',1,'<p>New comment to first post from API</p>',NULL,0,'2026-01-15 19:30:54','2026-01-15 20:55:40',NULL),(7,1,'App\\Models\\Post',1,'<p>Reply text on comment #5</p>',5,0,'2026-01-15 22:19:41',NULL,NULL);
+INSERT INTO `comments` VALUES (1,1,'App\\Models\\Post',1,'First comment to first post.',NULL,0,'2026-01-15 00:16:51','2026-01-15 00:16:54',NULL),(2,2,'App\\Models\\Post',1,'Reply to first comment to first post. Reply to first comment to first post.Reply to first comment to first post.Reply to first comment to first post.Reply to first comment to first post.Reply to first comment to first post.',1,0,'2026-01-15 01:18:32','2026-01-15 01:18:35',NULL),(3,1,'App\\Models\\Post',1,'<p>Reply from admin to text on comment #3</p>',2,0,'2026-01-15 04:56:20','2026-01-16 07:40:31',NULL),(4,2,'App\\Models\\Post',1,'Second comment to first post.',NULL,0,'2026-01-15 05:00:30','2026-01-15 05:00:32',NULL),(5,1,'App\\Models\\Post',1,'<p>New comment from admin to text on comment #5</p>',NULL,0,'2026-01-15 19:27:14','2026-01-16 07:42:01',NULL),(6,1,'App\\Models\\Post',1,'<p>New comment to first post from API</p>',NULL,0,'2026-01-15 19:30:54','2026-01-15 20:55:40',NULL),(7,1,'App\\Models\\Post',1,'<p>Reply text on comment #5</p>',5,0,'2026-01-15 22:19:41',NULL,NULL),(8,1,'App\\Models\\News',1,'<p>New comment to first news from API</p>',NULL,0,'2026-01-16 00:08:01',NULL,NULL),(9,5,'App\\Models\\Post',1,'<p>Reply from user#3 text on comment #5</p>',5,0,'2026-01-16 07:33:44','2026-01-16 08:21:33','2026-01-16 08:21:33'),(10,5,'App\\Models\\Post',1,'<p>Reply from user#3 text on comment #1</p>',1,0,'2026-01-16 07:34:34',NULL,NULL),(11,5,'App\\Models\\Post',1,'<p>Reply from user#3 to  comment #3 as comment #11</p>',3,0,'2026-01-16 07:36:08','2026-01-16 08:14:33',NULL),(12,5,'App\\Models\\Post',1,'<p>Reply from user#3 to  comment #5 as comment #12</p>',5,0,'2026-01-16 07:44:25','2026-01-16 08:17:10',NULL),(13,1,'App\\Models\\Post',1,'<p>Reply from admin to  comment #6</p>',6,0,'2026-01-16 07:54:52','2026-01-16 07:59:11',NULL),(14,5,'App\\Models\\Post',1,'<p>Reply from user#3 to  comment #6 as comment #14</p>',6,0,'2026-01-16 08:08:31','2026-01-16 08:18:55',NULL),(15,4,'App\\Models\\Post',1,'<p>Reply from user#2 to  comment #11</p>',11,0,'2026-01-16 08:26:07',NULL,NULL);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +205,7 @@ CREATE TABLE `personal_access_tokens` (
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`),
   KEY `personal_access_tokens_expires_at_index` (`expires_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +214,7 @@ CREATE TABLE `personal_access_tokens` (
 
 LOCK TABLES `personal_access_tokens` WRITE;
 /*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
-INSERT INTO `personal_access_tokens` VALUES (1,'App\\Models\\User',1,'auth_token','310f904f87f23a690e53391e4cddbe83f3990c0433579b3462715e7de22c2546','[\"*\"]',NULL,NULL,'2026-01-15 04:35:10','2026-01-15 04:35:10'),(2,'App\\Models\\User',1,'auth_token','22da38ad4436d4f7f6cd5b1d8c3fcc5522a8392117b30a4ea90299ddf66eb68b','[\"*\"]',NULL,NULL,'2026-01-15 11:00:10','2026-01-15 11:00:10'),(3,'App\\Models\\User',1,'auth_token','d71e421498268a8ad09cd409574072fc591c44460b1a9e39bf89f53fdac7c4d7','[\"*\"]','2026-01-15 22:19:41',NULL,'2026-01-15 11:27:25','2026-01-15 22:19:41');
+INSERT INTO `personal_access_tokens` VALUES (1,'App\\Models\\User',1,'auth_token','310f904f87f23a690e53391e4cddbe83f3990c0433579b3462715e7de22c2546','[\"*\"]',NULL,NULL,'2026-01-15 04:35:10','2026-01-15 04:35:10'),(2,'App\\Models\\User',1,'auth_token','22da38ad4436d4f7f6cd5b1d8c3fcc5522a8392117b30a4ea90299ddf66eb68b','[\"*\"]','2026-01-16 07:54:52',NULL,'2026-01-15 11:00:10','2026-01-16 07:54:52'),(3,'App\\Models\\User',1,'auth_token','d71e421498268a8ad09cd409574072fc591c44460b1a9e39bf89f53fdac7c4d7','[\"*\"]','2026-01-16 07:42:01',NULL,'2026-01-15 11:27:25','2026-01-16 07:42:01'),(4,'App\\Models\\User',5,'auth_token','c1af18b45b377b77b4aed94d6d2077daa6f58211ac8f15129e2048c1a5bf3600','[\"*\"]','2026-01-16 07:44:25',NULL,'2026-01-16 07:30:23','2026-01-16 07:44:25'),(5,'App\\Models\\User',4,'auth_token','5d5776a20b71a6f0e60e8777f4c1d4645cf7f282db34193c73f2916eec64b6ac','[\"*\"]','2026-01-16 07:56:30',NULL,'2026-01-16 07:35:38','2026-01-16 07:56:30'),(6,'App\\Models\\User',1,'auth_token','89ec9833ead4a425cc6cfcb68128d37d2628379230853d05220a2faeaad4f894','[\"*\"]','2026-01-16 07:59:11',NULL,'2026-01-16 07:57:12','2026-01-16 07:59:11'),(7,'App\\Models\\User',5,'auth_token','f032d71cd0c7fff29147f2477805a23fbe3f5622e5e78e43f8ea6f9b7234d721','[\"*\"]','2026-01-16 08:23:09',NULL,'2026-01-16 08:00:16','2026-01-16 08:23:09'),(8,'App\\Models\\User',4,'auth_token','6f033e730fec43df9c2e1f3e1d71757afa45380ab54a841ce4649ecd4a7ebe24','[\"*\"]','2026-01-16 08:26:07',NULL,'2026-01-16 08:22:31','2026-01-16 08:26:07');
 /*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,4 +285,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-16  4:23:30
+-- Dump completed on 2026-01-16 14:29:04
