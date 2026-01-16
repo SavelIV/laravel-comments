@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +16,10 @@
 |
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/post', [HomeController::class, 'post'])->name('post');
+Route::get('/news', [HomeController::class, 'news'])->name('news');
+Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
-Auth::routes();
-
-Route::get('/', 'HomeController@index')->name('home');

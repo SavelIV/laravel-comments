@@ -2,21 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Models\News;
+use App\Models\Post;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
-     *
      * @return Renderable
      */
     public function index(): Renderable
     {
-        $post = Post::first();
+        return view('home');
+    }
 
-        return view('home', compact('post'));
+    /**
+     * @return Renderable
+     */
+    public function about(): Renderable
+    {
+        return view('about');
+    }
+
+    /**
+     * @return Renderable
+     */
+    public function post(): Renderable
+    {
+        $posts = Post::withCommentsCount()->orderBy('id', 'desc')->get();
+
+        return view('posts', compact('posts'));
+    }
+
+    /**
+     * @return Renderable
+     */
+    public function news(): Renderable
+    {
+        $news = News::withCommentsCount()->orderBy('id', 'desc')->get();
+
+        return view('news', compact('news'));
     }
 }
