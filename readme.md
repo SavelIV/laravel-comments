@@ -26,7 +26,7 @@ API at http://127.0.0.1:8000/api
 
 After login you get the access_token in response. Put it in the Bearer Authorization Token.
 
-| Title                       | Method | Url                    | Params / Body                                           | Comment                          |
+| Title                       | Method | Url                    | Params / Body                                           | Value                            |
 |-----------------------------|--------|------------------------|---------------------------------------------------------|----------------------------------|
 | Login                       | POST   | /login                 | email<br/>password                                      | admin@gmail.com<br/>11111111     |
 | Register                    | POST   | /register              | name<br/>email<br/>password<br/>password_confirmation   |                                  | 
@@ -37,10 +37,10 @@ After login you get the access_token in response. Put it in the Bearer Authoriza
 | Create new news             | POST   | /news                  | title<br/>content                                       |                                  |                                  
 | Update news                 | PUT    | /news/{$newsId}        | title<br/>content                                       |                                  |
 | Get post comments           | GET    | /comments              | commentable_type<br/>commentable_id<br/>order_direction | post/news<br/>{$id}<br/>asc/desc |
-| Create new comment          | POST   | /comments              | commentable_type<br/>commentable_id<br/>order_direction | post/news<br/>{$id}<br/>asc/desc | 
-| Reply to comment            | POST   | /comments/{$commentId} | text                                                    |                                  |                                  
+| Create new comment          | POST   | /comments              | commentable_type<br/>commentable_id<br/>text            | post/news<br/>{$id}<br/> 3~3000  | 
+| Reply to comment            | POST   | /comments/{$commentId} | text                                                    | 3~3000                           |                                  
 | Get comment                 | GET    | /comments/{$commentId} |                                                         |                                  |
-| Update comment              | PUT    | /comments              | text                                                    |                                  |
+| Update comment              | PUT    | /comments/{$commentId} | text                                                    | 3~3000                           |
 | Delete comment              | DELETE | /comments/{$commentId} |                                                         |                                  | 
 
 **Project is ready to upgrade (votes, events, preprocessing, etc.)**

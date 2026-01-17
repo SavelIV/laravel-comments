@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|min:3|max:255',
-            'content' => 'required|string|min:3|max:1000'
+            'content' => 'required|string|min:3|max:3000'
         ]);
 
         if ($validator->fails()) {
@@ -58,7 +58,7 @@ class PostController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|min:3|max:255',
-            'content' => 'required|string|min:3|max:1000'
+            'content' => 'required|string|min:3|max:3000'
         ]);
 
         if ($validator->fails()) {
